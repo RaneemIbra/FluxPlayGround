@@ -9,10 +9,13 @@ on:
       - master
 
 jobs:
-  # Android build on Ubuntu
-  build-android:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target-framework: [net7.0-android, net7.0-windows, net7.0-ios]
     timeout-minutes: 30  # Extend timeout limit
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -23,54 +26,19 @@ jobs:
         with:
           dotnet-version: '7.x'
 
-      # Install Android workloads
-      - name: Install Android workloads
-        run: dotnet workload install maui-android
+      # Install workloads
+      - name: Install .NET MAUI workloads
+        run: dotnet workload install android ios maccatalyst
 
-      # Build for Android
-      - name: Build for Android
-        run: dotnet build --framework net7.0-android --configuration Release
-
-  # Windows build on Windows
-  build-windows:
-    runs-on: windows-latest
-    timeout-minutes: 30  # Extend timeout limit
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Set up .NET
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v3
+      # Cache workload installation
+      - name: Cache workload installation
+        uses: actions/cache@v3
         with:
-          dotnet-version: '7.x'
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
-      # Install Windows workloads
-      - name: Install Windows workloads
-        run: dotnet workload install maui-windows
-
-      # Build for Windows
-      - name: Build for Windows
-        run: dotnet build --framework net7.0-windows --configuration Release
-
-  # iOS build on macOS
-  build-ios:
-    runs-on: macos-latest
-    timeout-minutes: 30  # Extend timeout limit
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Set up .NET
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '7.x'
-
-      # Install iOS workloads
-      - name: Install iOS workloads
-        run: dotnet workload install maui-ios
-
-      # Build for iOS
-      - name: Build for iOS
-        run: dotnet build --framework net7.0-ios --configuration Release
+      # Build for specific platform
+      - name: Build for ${{ matrix.target-framework }}
+        run: dotnet build --framework ${{ matrix.target-framework }} --configuration Release
