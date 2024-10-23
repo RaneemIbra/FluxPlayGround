@@ -11,7 +11,7 @@ public partial class page2 : ContentPage
 	private void Button2_OnClicked(object sender, EventArgs e)
 	{
 		clicked++;
-		if (clicked == 3)
+		if (clicked == 2)
 		{
 			label1.IsVisible = true;
 		}
