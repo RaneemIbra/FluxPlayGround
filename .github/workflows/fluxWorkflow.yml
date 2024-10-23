@@ -10,11 +10,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # You can switch to macos-latest for iOS or windows-latest for Windows
-
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        target-platform: [android, windows]  # Adjust platforms as needed
+        target-platform: [android, windows]
+    timeout-minutes: 30  # Extend timeout limit
 
     steps:
       - name: Checkout repository
@@ -26,14 +26,19 @@ jobs:
         with:
           dotnet-version: '7.x'
 
-      # Restore .NET MAUI workloads
+      # Install workloads (run separately)
       - name: Install .NET MAUI workloads
         run: dotnet workload restore
 
-      # Build the project for each platform
-      - name: Build for ${{ matrix.target-platform }}
-        run: dotnet build --target ${matrix.target-platform} --configuration Release
+      # Cache workload installation
+      - name: Cache workload installation
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
-      # Run tests if you have them
-      - name: Run unit tests
-        run: dotnet test --configuration Release --no-build
+      # Build the project for the specific platform
+      - name: Build for ${{ matrix.target-platform }}
+        run: dotnet build --framework ${{ matrix.target-platform }} --configuration Release
