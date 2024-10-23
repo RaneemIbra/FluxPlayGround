@@ -1,4 +1,6 @@
-﻿namespace MauiApp1;
+﻿using MauiApp1.Pages;
+
+namespace MauiApp1;
 
 public partial class MainPage : ContentPage
 {
@@ -19,10 +21,11 @@ public partial class MainPage : ContentPage
 			CounterBtn.Text = $"Clicked {count} times";
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
-        if (count == 5)
-        {
-            Navigation.PushAsync(new page2());
-        }
+
+		if (count == 3)
+		{
+			Navigation.PushAsync(new LoginPage());
+		}
     }
 }
 
