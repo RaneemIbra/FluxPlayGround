@@ -11,8 +11,8 @@
     <StackLayout Padding="20">
         <Label Text="Login" FontSize="32" HorizontalOptions="Center" />
         
-        <Entry Placeholder="Username" Text="{Binding User.userName}" />
-        <Entry Placeholder="Email" Text="{Binding User.email}" Keyboard="Email" />
+        <Entry Placeholder="Username" Text="{Binding User.FirstName}" />
+        <Entry Placeholder="Email" Text="{Binding User.Email}" Keyboard="Email" />
 
         <Button Text="Login" Command="{Binding LoginCommand}" />
         <Label Text="{Binding LoginResult}" FontSize="16" TextColor="Green" />

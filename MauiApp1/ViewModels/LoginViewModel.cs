@@ -29,13 +29,13 @@ public class LoginViewModel : INotifyPropertyChanged
 
     private void OnLogin()
     {
-        if (string.IsNullOrEmpty(User.userName) || string.IsNullOrEmpty(User.email))
+        if (string.IsNullOrEmpty(User.FirstName) || string.IsNullOrEmpty(User.Email))
         {
             LoginResult = "Please enter a valid username and email.";
         }
         else
         {
-            LoginResult = $"Welcome, {User.userName} ({User.email})";
+            LoginResult = $"Welcome, {User.FirstName} ({User.Email})";
         }
     }
     
