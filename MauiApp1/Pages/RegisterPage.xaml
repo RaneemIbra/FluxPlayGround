@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="flux_image.jpg"
              x:Class="MauiApp1.Pages.RegisterPage">
     <ContentPage.Content>
         <ScrollView>
@@ -12,56 +13,102 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
                        VerticalOptions="StartAndExpand"
-                       Margin="0,20,0,30"/>
+                       TextColor="White"
+                       Margin="0,40,0,30"/>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="First Name:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Enter First Name" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="First Name:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Enter First Name"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Last Name:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Enter Last Name" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Last Name:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Enter Last Name"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Birthday:" VerticalOptions="Center" WidthRequest="150"/>
-                    <DatePicker HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Birthday:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <DatePicker TextColor="White" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Email:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Enter Email" Keyboard="Email" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Email:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Enter Email"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               Keyboard="Email"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Password:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Enter Password" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Password:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Enter Password"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Confirm Password:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Confirm Password" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Confirm Password:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Confirm Password"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Security Question:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Picker HorizontalOptions="FillAndExpand">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>What is your pet's name?</x:String>
-                                <x:String>What is your mother's maiden name?</x:String>
-                                <x:String>What was your first car?</x:String>
-                                <x:String>What is the name of your hometown?</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+                    <Label Text="Security Question:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Picker HorizontalOptions="FillAndExpand" TextColor="White" BackgroundColor="Transparent">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>What is your pet's name?</x:String>
+                                    <x:String>What is your mother's maiden name?</x:String>
+                                    <x:String>What was your first car?</x:String>
+                                    <x:String>What is the name of your hometown?</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Frame>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Answer:" VerticalOptions="Center" WidthRequest="150"/>
-                    <Entry Placeholder="Enter Answer" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Answer:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
+                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Enter Answer"
+                               PlaceholderColor="White"
+                               TextColor="White"
+                               BackgroundColor="Transparent"
+                               HorizontalOptions="FillAndExpand"/>
+                    </Frame>
                 </StackLayout>
+                
+                <Button Text="Confirm" Margin="0,20"/>
                 
             </StackLayout>
         </ScrollView>
