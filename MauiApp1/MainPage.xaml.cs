@@ -24,7 +24,7 @@ public partial class MainPage : ContentPage
 
 		if (count == 3)
 		{
-			Navigation.PushAsync(new LoginPage());
+			Navigation.PushAsync(new RegisterPage());
 		}
     }
 }
