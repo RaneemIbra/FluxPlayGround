@@ -2,9 +2,9 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundImageSource="flux_image.jpg"
              xmlns:vm="clr-namespace:MauiApp1.ViewModels"
-             x:Class="MauiApp1.Pages.RegisterPage">
+             x:Class="MauiApp1.Pages.RegisterPage"
+             BackgroundColor="#121212">
     
     <ContentPage.BindingContext>
         <vm:RegisterViewModel />
@@ -12,120 +12,97 @@
     
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20">
-                
-                <Label Text="Welcome to Flux"
-                       FontSize="24"
+            <StackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+                <Label Text="Create an Account"
+                       FontSize="28"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
-                       VerticalOptions="StartAndExpand"
-                       TextColor="White"
-                       Margin="0,40,0,30"/>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="First Name:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Enter First Name" 
-                               PlaceholderColor="White"
-                               Text="{Binding User.FirstName}" 
-                               TextColor="White" 
-                               BackgroundColor="Transparent" 
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Last Name:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Enter Last Name" 
-                               PlaceholderColor="White" 
-                               Text="{Binding User.LastName}" 
-                               TextColor="White" 
-                               BackgroundColor="Transparent" 
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Birthday:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <DatePicker TextColor="White" BackgroundColor="Transparent" Date="{Binding DateOfBirth}" HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Email:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Enter Email" 
-                               PlaceholderColor="White" 
-                               Text="{Binding User.Email}" 
-                               TextColor="White" 
-                               Keyboard="Email" 
-                               BackgroundColor="Transparent" 
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Password:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Enter Password" 
-                               PlaceholderColor="White" 
-                               Text="{Binding User.Password}" 
-                               IsPassword="True" 
-                               TextColor="White" 
-                               BackgroundColor="Transparent" 
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Confirm Password:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Confirm Password"
-                               PlaceholderColor="White"
-                               TextColor="White"
-                               BackgroundColor="Transparent"
-                               IsPassword="True"
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Security Question:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Picker HorizontalOptions="FillAndExpand" TextColor="White" SelectedItem="{Binding SecurityQuestion}" BackgroundColor="Transparent">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>What is your pet's name?</x:String>
-                                    <x:String>What is your mother's maiden name?</x:String>
-                                    <x:String>What was your first car?</x:String>
-                                    <x:String>What is the name of your hometown?</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="0,5">
-                    <Label Text="Answer:" VerticalOptions="Center" WidthRequest="150" TextColor="White"/>
-                    <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="5" Padding="0" HorizontalOptions="FillAndExpand">
-                        <Entry Placeholder="Enter Answer" 
-                               PlaceholderColor="White" 
-                               Text="{Binding User.SecurityAnswer}" 
-                               TextColor="White" 
-                               BackgroundColor="Transparent" 
-                               HorizontalOptions="FillAndExpand"/>
-                    </Frame>
-                </StackLayout>
-                
-                <Button Text="Confirm" 
+                       TextColor="#E0E0E0"
+                       Margin="0,10"/>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="First Name" 
+                           PlaceholderColor="#9E9E9E" 
+                           Text="{Binding User.FirstName}" 
+                           TextColor="#E0E0E0" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="Last Name" 
+                           PlaceholderColor="#9E9E9E" 
+                           Text="{Binding User.LastName}" 
+                           TextColor="#E0E0E0" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <DatePicker TextColor="#E0E0E0" 
+                                Date="{Binding DateOfBirth}" 
+                                BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="Email" 
+                           PlaceholderColor="#9E9E9E" 
+                           Text="{Binding User.Email}" 
+                           TextColor="#E0E0E0" 
+                           Keyboard="Email" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="Password" 
+                           PlaceholderColor="#9E9E9E" 
+                           Text="{Binding User.Password}" 
+                           IsPassword="True" 
+                           TextColor="#E0E0E0" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="Confirm Password" 
+                           PlaceholderColor="#9E9E9E" 
+                           TextColor="#E0E0E0" 
+                           IsPassword="True" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Picker TextColor="#E0E0E0" 
+                            SelectedItem="{Binding SecurityQuestion}" 
+                            BackgroundColor="Transparent">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Select a question...</x:String>
+                                <x:String>What is your pet's name?</x:String>
+                                <x:String>What is your mother's maiden name?</x:String>
+                                <x:String>What was your first car?</x:String>
+                                <x:String>What is the name of your hometown?</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Frame>
+
+                <Frame BackgroundColor="#1E1E1E" BorderColor="#2C2C2C" CornerRadius="8" Padding="10">
+                    <Entry Placeholder="Security Answer" 
+                           PlaceholderColor="#9E9E9E" 
+                           Text="{Binding User.SecurityAnswer}" 
+                           TextColor="#E0E0E0" 
+                           BackgroundColor="Transparent" />
+                </Frame>
+
+                <Button Text="Register" 
                         Command="{Binding ConfirmCommand}" 
-                        Margin="0,20"/>
-                
+                        BackgroundColor="#3A7CA5" 
+                        TextColor="White" 
+                        CornerRadius="10" 
+                        Padding="10" 
+                        FontAttributes="Bold"/>
+
                 <Label Text="{Binding RegistrationResult}" 
                        FontSize="16" 
-                       TextColor="Green" 
+                       TextColor="#66BB6A" 
                        HorizontalOptions="Center" />
             </StackLayout>
         </ScrollView>

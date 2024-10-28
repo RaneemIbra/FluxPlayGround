@@ -12,6 +12,7 @@ namespace MauiApp1.ViewModels
 
         private UserModel _user;
         private string _registrationResult;
+        private string _securityQuestion = "Select a question...";
 
         public RegisterViewModel()
         {
@@ -43,11 +44,14 @@ namespace MauiApp1.ViewModels
 
         public string SecurityQuestion
         {
-            get { return User.SecurityQuestion; }
+            get => _securityQuestion;
             set
             {
-                User.SecurityQuestion = value;
-                OnPropertyChanged();
+                if (_securityQuestion != value)
+                {
+                    _securityQuestion = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -65,7 +69,7 @@ namespace MauiApp1.ViewModels
         {
             if (string.IsNullOrEmpty(User.FirstName) || string.IsNullOrEmpty(User.LastName) ||
                 string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password) ||
-                string.IsNullOrEmpty(User.SecurityAnswer) || string.IsNullOrEmpty(SecurityQuestion))
+                string.IsNullOrEmpty(User.SecurityAnswer) || SecurityQuestion == "Select a question...")
             {
                 RegistrationResult = "Please fill in all fields.";
             }
