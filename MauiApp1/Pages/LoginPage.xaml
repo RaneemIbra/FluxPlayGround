@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiApp1.ViewModels"
+             x:Class="MauiApp1.Pages.LoginPage"
+             BackgroundColor="#121212">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout VerticalOptions="Center" Padding="30" Spacing="20">
+        <Frame CornerRadius="15" Padding="20" BackgroundColor="#1E1E1E" HasShadow="True">
+            <StackLayout>
+                <Label Text="Welcome Back" 
+                       FontSize="36" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       TextColor="#E0E0E0"/>
+
+                <Entry Placeholder="Username" 
+                       Text="{Binding User.FirstName}" 
+                       PlaceholderColor="#9E9E9E" 
+                       TextColor="#E0E0E0" 
+                       BackgroundColor="#1E1E1E" />
+
+                <Entry Placeholder="Email" 
+                       Text="{Binding User.Email}" 
+                       Keyboard="Email" 
+                       PlaceholderColor="#9E9E9E" 
+                       TextColor="#E0E0E0" 
+                       BackgroundColor="#1E1E1E"/>
+
+                <Button Text="Login" 
+                        Command="{Binding LoginCommand}" 
+                        BackgroundColor="#3A7CA5" 
+                        TextColor="White" 
+                        CornerRadius="10" 
+                        Padding="10" 
+                        FontAttributes="Bold"/>
+
+                <Label Text="{Binding LoginResult}" 
+                       FontSize="16" 
+                       TextColor="#66BB6A" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
