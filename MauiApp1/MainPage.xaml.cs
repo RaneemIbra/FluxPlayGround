@@ -17,6 +17,6 @@ public partial class MainPage : ContentPage
 	private void OnLoginClicked(object sender, EventArgs e)
 	{
 		Navigation.PushAsync(new LoginPage());
-	}
+	}//testing the git if we are on the right track
 }
 
